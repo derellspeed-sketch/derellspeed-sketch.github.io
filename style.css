@@ -1,20 +1,26 @@
-
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  background: linear-gradient(135deg, #fa0200, #199af5);
-  background-size: 400% 400%;
-  animation: moveGradient 12s ease infinite;
-  background-attachment:fixed;
-  height: 100vh;
-  margin: 0;
-
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  background: #199af5;
   color: #fa7dd8;
   padding: 10px;
   font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, #fa0200, #199af5);
+  background-size: 400% 400%;
+  animation: moveGradient 12s ease infinite;
 }
 
 #all-contents {
@@ -177,12 +183,12 @@ nav h1 {
 
 @keyframes moveGradient {
   0% {
-     background-position: 0% 50%;
-    }
+    background-position: 0% 50%;
+  }
   50% {
-     background-position: 100% 50%;
-    }
+    background-position: 100% 50%;
+  }
   100% {
-     background-position: 0% 50%;
-    }
+    background-position: 0% 50%;
+  }
 }
